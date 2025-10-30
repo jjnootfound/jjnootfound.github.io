@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,3 +11,173 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Breviceps-adspersus-adspersus.jpg" alt="that's literally me" height="240" width="320"></img>
     </body>
 </html>
+<!--wuau-->
+
+
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+
+export default function EmpoderaSTEM() {
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Gracias — hemos recibido tu mensaje. (Este es un ejemplo estático.)');
+    setForm({ name: '', email: '', message: '' });
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#071028] to-[#071622] text-[#e6eef8] font-inter">
+      <div className="max-w-6xl mx-auto px-4 py-10">
+        {/* Header */}
+        <header className="flex justify-between items-center mb-10">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-gradient-to-br from-[#6c63ff] to-[#00c2ff] rounded-xl flex items-center justify-center font-extrabold">ES</div>
+            <div>
+              <h1 className="font-extrabold text-xl">EmpoderaSTEM</h1>
+              <p className="text-sm text-slate-400">Educación STEM para todas</p>
+            </div>
+          </div>
+          <nav className="hidden md:flex gap-4 font-semibold text-slate-200">
+            <a href="#programas">Programas</a>
+            <a href="#voluntariado">Voluntariado</a>
+            <a href="#equipo">Equipo</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
+        </header>
+
+        {/* Hero */}
+        <section className="grid md:grid-cols-2 gap-10 items-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <h2 className="text-3xl font-bold mb-2">Inspira. Enseña. Empodera.</h2>
+            <p className="text-slate-400 mb-4">
+              EmpoderaSTEM conecta a niñas y jóvenes con recursos, mentoría y experiencias prácticas en ciencia, tecnología, ingeniería y matemáticas para que descubran su potencial y lideren el futuro.
+            </p>
+            <div className="flex gap-3">
+              <button className="bg-[#6c63ff] px-4 py-2 rounded-lg font-semibold">Únete como voluntaria</button>
+              <button className="border border-slate-600 px-4 py-2 rounded-lg font-semibold text-slate-200">Conoce nuestros programas</button>
+            </div>
+            <div className="flex flex-wrap gap-2 mt-4 text-sm text-slate-300">
+              <span className="bg-slate-800/40 rounded-full px-3 py-1">Talleres prácticos</span>
+              <span className="bg-slate-800/40 rounded-full px-3 py-1">Mentoría 1:1</span>
+              <span className="bg-slate-800/40 rounded-full px-3 py-1">Eventos presenciales</span>
+            </div>
+          </motion.div>
+
+          {/* Evento destacado */}
+          <motion.aside initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-slate-900/40 border border-slate-800 p-6 rounded-xl shadow-md">
+            <h3 className="font-bold text-lg">Próximo evento</h3>
+            <p className="text-slate-400 text-sm mb-2">Hackathon Infantil — 14 de noviembre, Ciudad de México</p>
+            <p className="text-sm mb-3">Talleres, mini-retos y mentores en sitio. Cupo limitado.</p>
+            <div className="flex gap-2 mb-3">
+              <button className="bg-[#6c63ff] px-3 py-2 rounded-md font-semibold">Registrarme</button>
+              <button className="border border-slate-600 px-3 py-2 rounded-md font-semibold text-slate-200">Ver programa</button>
+            </div>
+            <p className="text-xs text-slate-500">
+              <strong>Impacto:</strong> +1,200 niñas alcanzadas · 75 voluntarias · 30 talleres
+            </p>
+          </motion.aside>
+        </section>
+
+        {/* Programas */}
+        <section id="programas" className="mt-16">
+          <h2 className="text-2xl font-bold mb-4">Programas destacados</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                title: 'Robótica para principiantes',
+                desc: 'Curso de 8 semanas con proyectos prácticos y competencias locales.',
+              },
+              {
+                title: 'Laboratorio de código',
+                desc: 'Clases gamificadas para aprender Python y JavaScript.',
+              },
+              {
+                title: 'Club de Ciencias y Emprendimiento',
+                desc: 'Iniciativas para resolver problemas locales con soluciones sostenibles.',
+              },
+            ].map((prog) => (
+              <div key={prog.title} className="bg-slate-900/40 border border-slate-800 p-4 rounded-xl">
+                <h3 className="font-semibold mb-2">{prog.title}</h3>
+                <p className="text-slate-400 text-sm">{prog.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Voluntariado */}
+        <section id="voluntariado" className="mt-16">
+          <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-xl">
+            <h2 className="text-2xl font-bold mb-2">Voluntariado y alianzas</h2>
+            <p className="text-slate-400 mb-3">
+              Si eres estudiante, profesional o institución que quiere ayudar, tenemos roles para instructores, mentoras, organizadoras y apoyo logístico.
+            </p>
+            <ul className="list-disc pl-5 text-sm text-slate-300 mb-3">
+              <li>Mentoría 1:1</li>
+              <li>Impartir talleres técnicos</li>
+              <li>Apoyo en logística y difusión</li>
+            </ul>
+            <button className="bg-[#6c63ff] px-4 py-2 rounded-lg font-semibold">Quiero ayudar</button>
+          </div>
+        </section>
+
+        {/* Equipo */}
+        <section id="equipo" className="mt-16 grid md:grid-cols-2 gap-4">
+          <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-xl">
+            <h2 className="text-2xl font-bold mb-3">Nuestro equipo</h2>
+            {[{ name: 'Jorlen Moreno', role: 'Fundadora & Coordinadora', initials: 'JM' }, { name: 'Mafer Espinoza', role: 'Líder de talleres y alianzas', initials: 'ME' }, { name: 'Tiffany Muñoz', role: 'Coordinación regional', initials: 'TM' }].map((member) => (
+              <div key={member.name} className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center font-bold text-[#cfe9ff]">{member.initials}</div>
+                <div>
+                  <p className="font-semibold">{member.name}</p>
+                  <p className="text-slate-400 text-sm">{member.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-xl">
+            <h2 className="text-2xl font-bold mb-3">Recursos</h2>
+            <p className="text-slate-400 mb-3">Materiales y guías abiertas para docentes y mentoras:</p>
+            <ul className="list-disc pl-5 text-sm text-slate-300 mb-3">
+              <li>Currículum de Arduino (descarga)</li>
+              <li>Banco de preguntas para entrevistas de jueces</li>
+              <li>Guía de eventos seguros e inclusivos</li>
+            </ul>
+            <button className="border border-slate-600 px-4 py-2 rounded-lg font-semibold text-slate-200">Descargar recursos</button>
+          </div>
+        </section>
+
+        {/* Contacto */}
+        <section id="contacto" className="mt-16">
+          <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-xl">
+            <h2 className="text-2xl font-bold mb-3">Contacto</h2>
+            <p className="text-slate-400 mb-3">¿Tienes preguntas, una alianza en mente o quieres donar? Escríbenos.</p>
+            <form onSubmit={handleSubmit} className="grid gap-3 max-w-lg">
+              <input name="name" value={form.name} onChange={handleChange} placeholder="Nombre" className="bg-transparent border border-slate-700 rounded-lg p-2 text-slate-200" required />
+              <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Correo" className="bg-transparent border border-slate-700 rounded-lg p-2 text-slate-200" required />
+              <textarea name="message" value={form.message} onChange={handleChange} rows="4" placeholder="Mensaje" className="bg-transparent border border-slate-700 rounded-lg p-2 text-slate-200" required />
+              <div className="flex gap-3">
+                <button type="submit" className="bg-[#6c63ff] px-4 py-2 rounded-lg font-semibold">Enviar</button>
+                <button type="button" className="border border-slate-600 px-4 py-2 rounded-lg font-semibold text-slate-200">Donar</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="mt-16 pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+          <p>© EmpoderaSTEM — Creando oportunidades para niñas y jóvenes</p>
+          <div className="flex gap-4 mt-2 md:mt-0">
+            <a href="#" className="hover:text-slate-300">Política de privacidad</a>
+            <a href="#" className="hover:text-slate-300">Términos</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
+}
